@@ -1,0 +1,49 @@
+<html>
+<head><title>login</title>
+<link rel="stylesheet" type="text/css" href ="style.css">
+<style>
+.hero{
+margin-left:33%;
+margin-right:33%;
+}
+.cart{
+font-size:30px;
+width:200px;
+height:60px;
+font-family:carbon black;
+background-color:#5c5858 ;
+color:#ffffff;
+}
+</style>
+</head>
+<body class="hero">
+<h1>LOGIN</h1>
+<br>
+<br>
+<form name="f2">
+Name <input type="text"><br><br>
+Phone Number <input type="text" name="mob"><br><br>
+Email <input type="text" placeholder="name@example.com" name="email"><br><br>
+Password <input type="password"><br><br>
+<input type="button" value="Login" onclick="ValidateEmail()" class="cart">
+</form>
+<script>
+function ValidateEmail() 
+{
+ var a=f2.email.value
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(a) && f2.mob.value.length==10)
+  {
+	window.location.href = "main.html"
+    return (true)
+  }
+  else{
+    alert("You have entered an invalid email address/mobile number!")
+	window.location.href = "login.html"
+    return (false)
+	}
+	}
+
+
+</script>
+</body>
+</html>

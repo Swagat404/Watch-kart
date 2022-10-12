@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>payment</title>
+<link rel="stylesheet" type="text/css" href ="style.css">
+<style>
+.hero{
+margin-left:33%;
+margin-right:33%;
+}
+.cart{
+font-size:30px;
+width:200px;
+height:60px;
+font-family:carbon black;
+background-color:#5c5858 ;
+color:#ffffff;
+}
+</style>
+<script>
+function amount(){
+var a;
+a=0
+if (f1.c1.checked){
+a+=1700000}
+if (f1.c3.checked){
+a+=900000}
+if (f1.c5.checked){
+a+=500000}
+if (f1.c6.checked){
+a+=270000}
+f1.t1.value=a}
+
+function receipt(){
+var l=f1.email.value
+if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(l) && f1.mob.value.length==10)
+  {
+  }
+else{
+    alert("You have entered an invalid email address/mobile number!")
+	window.location.href = "pay.html"
+    return (false)
+	}
+var d,e,f,g,h,i;
+d=0
+e=""
+if (f1.c1.checked){
+d+=1700000
+e+="--AUDEMARS PIGUET ROYAL OAK CHRONOGRAPH: 1700000"}
+if (f1.c3.checked){
+d+=900000
+e+="--BLANCPAIN FIFTY FATHOMS: 900000"}
+if (f1.c5.checked){
+d+=500000
+e+="--BREITLING NAVITIMER B01 CHRONOGRAPH: 500000"}
+if (f1.c6.checked){
+d+=270000
+e+="--BREMONT JAGUAR MKI: 270000 "}
+if(f1.method[0].checked){
+h="CASH ON DELIVERY"
+}
+else{
+h="ONLINE PAYMENT"}
+document.write("Name: "+f1.na.value+"<br><br>")
+document.write("Items Purchased"+"<br>")
+f=e.split("--")
+g=f.length
+for(i=1;i<g;i++){
+document.write(f[i]+"<br>")
+}
+document.write("<br>"+"Amount: "+d+"<br>")
+document.write("GST: "+(0.28*d)+"<br>")
+document.write("Total Amount: "+(d+(0.28*d))+"<br><br>")
+document.write("Method of Payment: "+h+"<br><br>")
+i=new Date()
+i.setDate(i.getDate()+7)
+document.write("Estimated delivery date: "+(i.getDate()+"/"+i.getMonth()+"/"+i.getFullYear())+"<br><br>")
+document.write("Please PRINT this receipt"+"<br>")
+}
+
+</script>
+</head>
+<body class="hero">
+<h1>PAYMENT</h1>
+<form name="f1">
+<input type="checkbox" name="c1">AUDEMARS PIGUET ROYAL OAK CHRONOGRAPH<br>Price: &#8377; 17,00,000<br><br>
+<input type="checkbox" name="c3">BLANCPAIN FIFTY FATHOMS<br>Price: &#8377; 9,00,000<br><br>
+<input type="checkbox" name="c5">BREITLING NAVITIMER B01 CHRONOGRAPH<br>Price: &#8377; 5,00,000<br><br>
+<input type="checkbox" name="c6">BREMONT JAGUAR MKI<br>Price: &#8377; 2,70,000<br><br>
+<hr size=7 color="white">
+Name <input type="text" name="na"><br><br>
+Phone Number <input type="text" name="mob"><br><br>
+Email <input type="text" name="email" placeholder="name@example.com"><br><br>
+<input type="radio" name="method" value="Cash on Delivery">Cash on Delivery<br><br>
+<input type="radio" name="method" value="Online Payment">Online Payment<br><br>
+Card Number <input type="text"><br><br>
+CVV <input type="text"><br><br>
+PIN <input type="password"><br><br>
+<input type="button" value="Show Amount" onclick="amount()" class="cart"><br><br>
+Amount <input type="text" name="t1"><br><br>
+<big>A verification mail and message will be sent to shortly. Thank you for shopping with us.</big><br><br>
+<input type="button" value="Submit" onclick="receipt()" class="cart">
+</form>
+</body>
+</html>
